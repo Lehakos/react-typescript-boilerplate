@@ -9,7 +9,7 @@ module.exports = {
   entry: ['./src/index.tsx'],
 
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
     path: path.join(__dirname, '..', 'dist'),
   },
 

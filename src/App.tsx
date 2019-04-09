@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import GlobalStyles from './GlobalStyles';
 
 const App: React.FunctionComponent = function () {
-  return <div>Hello world!</div>;
+  return (
+    <Fragment>
+      <GlobalStyles />
+      <div>Hello World!</div>
+    </Fragment>
+  );
 };
 
 export default App;

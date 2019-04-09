@@ -12,9 +12,6 @@
     "moduleResolution": "node",
     "noEmit": true,
     "sourceMap": true,
-    "paths": {
-      "src/*": ["*"]
-    },
     "plugins": [
       {
         "name": "typescript-styled-plugin"

@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import App from './App';
 
-const render = (Component: React.ComponentType): void => {
+const render = (Component: React.ComponentType<any>): void => {
   ReactDOM.render(
     <AppContainer>
       <Component />
