@@ -1,0 +1,11 @@
+{
+  "prettier.eslintIntegration": true,
+  "eslint.workingDirectories": ["src"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "git.ignoreLimitWarning": true
+}
