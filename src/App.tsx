@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import GlobalStyles from './GlobalStyles';
+import * as themes from 'ui/themes';
 
-const App: React.FunctionComponent = function () {
+import { GlobalStyles } from './global-styles';
+
+export const App: React.FunctionComponent<{}> = function() {
   return (
-    <Fragment>
+    <ThemeProvider theme={themes.base}>
       <GlobalStyles />
-      <div>Hello World!</div>
-    </Fragment>
+    </ThemeProvider>
   );
 };
-
-export default App;

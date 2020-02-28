@@ -16,6 +16,11 @@ module.exports = ({ config }) => {
     },
   ];
 
-  config.resolve.extensions.push('.ts', '.tsx');
-  return { ...config, module: { ...config.modules, rules } };
+  const extensions = [
+    ...config.resolve.extensions,
+    '.ts',
+    '.tsx'
+  ]
+
+  return { ...config, resolve: { ...config.resolve, extensions }, module: { ...config.module, rules } };
 };

@@ -1,12 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { configure, addDecorator, addParameters } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withConsole } from '@storybook/addon-console';
 import { create } from '@storybook/theming';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import GlobalStyles from '../src/GlobalStyles';
+import { theme } from 'shared/theme';
+
+import { GlobalStyles } from '../src/global-styles';
 
 addParameters({
   options: {
@@ -14,20 +15,18 @@ addParameters({
       base: 'light',
       brandTitle: 'ui-kit',
     }),
-    sortStoriesByKind: true,
     hierarchyRootSeparator: '|',
-    hierarchySeparator: '/',
+    hierarchySeparator: /\//,
+    addonPanelInRight: true,
   },
 });
-
-addDecorator(withInfo());
 
 addDecorator(withKnobs);
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
 addDecorator(story => (
-  <ThemeProvider theme={{}}>
+  <ThemeProvider theme={theme}>
     <div style={{ padding: '12px' }}>
       <GlobalStyles />
       {story()}

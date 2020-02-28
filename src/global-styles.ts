@@ -1,12 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   *,
   ::before,
   ::after {
     box-sizing: border-box;
   }
 `;
-
-export default GlobalStyle;

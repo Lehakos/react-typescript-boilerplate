@@ -1,7 +1,9 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+  .default;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
@@ -15,6 +17,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
+    plugins: [new TsConfigPathsPlugin()],
   },
 
   plugins: [
@@ -50,14 +53,16 @@ module.exports = {
 
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader',
+        use: ['@svgr/webpack', 'file-loader'],
       },
 
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
         options: {
-          getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+          getCustomTransformers: () => ({
+            before: [styledComponentsTransformer],
+          }),
         },
       },
     ],
